@@ -1,0 +1,9 @@
+.carousel-item img {
+  height: 30rem;      /* Defina a altura desejada */
+  object-fit: cover;  /* Preenche o espaço cortando as sobras, sem distorcer */
+  width: 10rem;   
+  margin: 0 auto; 
+  display: block;    /* Mantém a largura total do carrossel */
+  padding: 3rem;
+  border-radius: 5rem;
+}
