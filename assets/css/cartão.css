@@ -14,3 +14,12 @@
     padding-right: 2rem;
     border-radius: 5rem;
 }
+.cartoes{
+    display: flex;
+}
+.cartoes img{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    margin-top: 1rem;
+}
