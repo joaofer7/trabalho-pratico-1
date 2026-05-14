@@ -1,0 +1,21 @@
+/* --- CABEÇALHO --- */
+.navbar {
+    background-color: #1f1f1f !important; /* Fundo escuro para destacar o texto */
+    border-bottom: 1px solid #333;
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #00ff88 !important; /* Cor de destaque IA */
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #00ff88 !important;
+}

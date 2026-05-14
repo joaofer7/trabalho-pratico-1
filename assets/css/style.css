@@ -1,6 +1,55 @@
 @import url(carrosel.css);
 @import url(cartão.css);
+@import url(rodape.css);
+@import url(cabecalho.css);
 
-body{
-      background-color: #4e4949;
+/* --- CORPO E GERAL --- */
+body {
+    background-color: #121212; /* Fundo preto azulado profundo */
+    color: #e0e0e0;           /* Texto cinza claro para não cansar a vista */
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;      /* Evita barra de rolagem horizontal indesejada */
+}
+
+/* Espaçamento entre as seções do site */
+section {
+    padding: 60px 0;
+}
+
+/* Títulos das seções */
+h2 {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Detalhe embaixo dos títulos (opcional, estilo IA) */
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #00ff88;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* Estilização da barra de rolagem (Scrollbar) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00ff88;
 }

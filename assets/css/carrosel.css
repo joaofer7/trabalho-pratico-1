@@ -1,9 +1,24 @@
+/* --- CARROSSEL --- */
+.carousel {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
 .carousel-item img {
-  height: 30rem;      /* Defina a altura desejada */
-  object-fit: cover;  /* Preenche o espaço cortando as sobras, sem distorcer */
-  width: 10rem;   
-  margin: 0 auto; 
-  display: block;    /* Mantém a largura total do carrossel */
-  padding: 3rem;
-  border-radius: 5rem;
+    height: 500px; /* Altura fixa para desktops */
+    object-fit: cover; /* Corta as bordas sem achatar a imagem */
+    filter: brightness(0.6); /* Escurece a imagem para o texto aparecer */
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    padding: 2rem;
+    bottom: 20%;
+}
+
+/* Responsividade do Carrossel para Celular */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
 }
