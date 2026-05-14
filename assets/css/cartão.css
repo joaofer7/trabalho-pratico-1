@@ -1,25 +1,56 @@
-
+/* --- AJUSTE DO CARROSSEL --- */
 .carousel-item img {
-  height: 30rem;      /* Defina a altura desejada */
-  object-fit: cover;  /* Preenche o espaço cortando as sobras, sem distorcer */
-  width: 10rem;   
-  margin: 0 auto; 
-  display: block;    /* Mantém a largura total do carrossel */
-  padding: 3rem;
-  border-radius: 5rem;
-}
-
-.card{
-    margin-right: auto;
-    padding-right: 2rem;
+    height: 30rem;
+    object-fit: cover;
+    width: 100%; /* Carrossel geralmente usa 100% da largura */
+    margin: 0 auto;
+    display: block;
+    padding: 1rem; /* Reduzi o padding para não "esmagar" muito a imagem */
     border-radius: 5rem;
 }
-.cartoes{
-    display: flex;
+
+/* --- AJUSTE DOS CARTÕES --- */
+
+/* 1. O Body (Fundo da página) */
+body {
+    background-color: #333; /* Cor escura de fundo */
+    color: white;
+    margin: 0;
+    padding: 0;
 }
-.cartoes img{
-    margin-left: 2rem;
-    margin-right: 2rem;
-    display: flex;
-    margin-top: 1rem;
+
+/* 2. O Container dos cartões */
+/* Removi o display:flex manual, deixe o Bootstrap cuidar disso na 'row' */
+.cartoes {
+    padding: 2rem 0;
+}
+
+/* 3. O Card em si */
+.card {
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 2rem; /* Bordas arredondadas, mas 5rem pode ser exagero para o card */
+    overflow: hidden;    /* Garante que a imagem respeite o arredondamento do card */
+    border: none;
+    transition: transform 0.2s;
+    margin: 0 auto;      /* Centraliza o card dentro da coluna */
+    margin-bottom: 30px !important; /* Cria o espaço em baixo de cada cartão */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* 4. A Imagem do Card (O segredo da centralização) */
+.card-img-top {
+    width: 100%;       
+    height: 200px;     /* Altura fixa para manter todos iguais */
+    object-fit: cover; /* Não deixa a imagem esticar ou achatar */
+    display: block;
+}
+
+/* 5. O Texto do Card */
+.card-body {
+    text-align: center; 
+    padding: 1.5rem;
 }
