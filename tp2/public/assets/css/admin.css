@@ -1,0 +1,73 @@
+/* ===== YOUR ALBUM CRITIC — ADMIN =====
+   Autenticação, dashboard, CRUD e estados vazios
+   ================================================= */
+
+/* Login / Cadastro de Conta */
+.auth-card {
+  background: var(--preto-card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.form-control-dark {
+  background: var(--preto-card2) !important;
+  border: 1px solid var(--borda) !important;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+.form-control-dark:focus {
+  border-color: var(--verde) !important;
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.15) !important;
+}
+
+.form-control-dark::placeholder {
+  color: var(--cinza-escuro) !important;
+}
+
+/* Gráfico Chart.js */
+#secao-grafico {
+  background: var(--preto-card);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--borda);
+}
+
+/* Tabela CRUD */
+.table-dark-custom {
+  color: var(--cinza);
+  border-color: var(--borda);
+}
+
+.table-dark-custom thead {
+  background: var(--preto-card2);
+  color: var(--verde);
+}
+
+.table-dark-custom tbody tr {
+  border-color: var(--borda);
+  transition: background 0.15s;
+}
+
+.table-dark-custom tbody tr:hover {
+  background: var(--preto-card2);
+}
+
+/* Estado Vazio */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cinza-escuro);
+}
+
+.empty-state svg {
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+}

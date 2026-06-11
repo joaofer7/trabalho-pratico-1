@@ -1,0 +1,460 @@
+/* ===== YOUR ALBUM CRITIC - TP2 ===== */
+
+/* ==========================================================================
+   1. IMPORTAÇÕES E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --verde: #00ff88;
+  --verde-escuro: #00cc6a;
+  --preto: #0a0a0a;
+  --preto-card: #151515;
+  --preto-card2: #1a1a1a;
+  --cinza: #e0e0e0;
+  --cinza-escuro: #888;
+  --borda: #2a2a2a;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--cinza);
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section { 
+  padding: 60px 0; 
+}
+
+/* Elementos de Título Reutilizáveis */
+h2 {
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--verde);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   2. COMPONENTES GENÉRICOS (SCROLLBAR E BOTÕES)
+   ========================================================================== */
+::-webkit-scrollbar { 
+  width: 8px; 
+}
+::-webkit-scrollbar-track { 
+  background: #111; 
+}
+::-webkit-scrollbar-thumb { 
+  background: #333; 
+  border-radius: 5px; 
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: var(--verde); 
+}
+
+/* Botões Customizados */
+.btn-verde {
+  background: var(--verde);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-verde:hover {
+  background: var(--verde-escuro);
+  transform: translateY(-1px);
+}
+
+.btn-outline-verde {
+  border: 1px solid var(--verde);
+  color: var(--verde);
+  background: transparent;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-outline-verde:hover {
+  background: var(--verde);
+  color: #000;
+}
+
+/* Badges de Status / Tags */
+.badge-genero {
+  background: rgba(0,255,136,0.15);
+  color: var(--verde);
+  border: 1px solid rgba(0,255,136,0.3);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.badge-admin {
+  background: rgba(255,77,109,0.15);
+  color: #ff4d6d;
+  border: 1px solid rgba(255,77,109,0.3);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA E ELEMENTOS DA INTERFACE (NAVBAR, HERO, FOOTER)
+   ========================================================================== */
+.navbar { 
+  border-bottom: 1px solid var(--borda); 
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.navbar-brand span { 
+  color: var(--verde); 
+}
+
+.nav-link {
+  color: var(--cinza-escuro) !important;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  color: var(--verde) !important;
+}
+
+/* Seção de Destaque Inicial */
+.hero-section {
+  background: linear-gradient(180deg, #111 0%, var(--preto) 100%);
+  padding: 80px 0 40px;
+}
+
+/* Rodapé / Informações do Autor */
+.autor-section {
+  background: var(--preto-card);
+  border-top: 1px solid var(--borda);
+}
+
+.autor-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--verde);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cinza-escuro);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.social-link:hover { 
+  color: var(--verde); 
+}
+
+/* Cabeçalhos Comuns de Páginas Internas */
+.page-header {
+  padding: 40px 0 20px;
+  border-bottom: 1px solid var(--borda);
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   4. MÓDULO: CARROSSEL (DESTAQUES)
+   ========================================================================== */
+.carousel-item img {
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.45); /* Mantém o escurecimento para leitura do texto */
+}
+
+.carousel-caption {
+  bottom: 60px;
+  text-align: left;
+  left: 8%;
+  right: 8%;
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* ==========================================================================
+   5. MÓDULO: LISTAGEM DE ÁLBUNS (CARDS)
+   ========================================================================== */
+.album-card {
+  background: var(--preto-card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.album-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--verde);
+  box-shadow: 0 8px 32px rgba(0,255,136,0.12);
+}
+
+.album-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.album-card .card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-card .card-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.album-card .card-artista {
+  font-size: 0.85rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 8px;
+}
+
+.album-card .card-descricao {
+  font-size: 0.82rem;
+  color: #999;
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+
+/* Ícone de Curtir / Favoritar nos cards */
+.btn-favorito {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 0.15s;
+}
+
+.btn-favorito:hover { 
+  transform: scale(1.2); 
+}
+.btn-favorito.favoritado { 
+  color: #ff4d6d; 
+}
+.btn-favorito:not(.favoritado) { 
+  color: var(--cinza-escuro); 
+}
+
+/* Componente de busca */
+.search-wrapper {
+  position: relative;
+  max-width: 380px;
+}
+
+.search-wrapper input {
+  background: var(--preto-card2);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 42px 10px 16px;
+  width: 100%;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+  border-color: var(--verde);
+}
+
+.search-wrapper input::placeholder { 
+  color: var(--cinza-escuro); 
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cinza-escuro);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   6. MÓDULO: PÁGINA DE DETALHES DO ÁLBUM
+   ========================================================================== */
+.detalhe-img {
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+}
+
+.faixa-item {
+  background: var(--preto-card);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+
+.faixa-item:hover { 
+  border-color: var(--verde); 
+}
+
+.analise-box {
+  background: var(--preto-card);
+  border-left: 4px solid var(--verde);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+}
+
+/* ==========================================================================
+   7. MÓDULO: SEÇÕES ESPECÍFICAS (AUTENTICAÇÃO, DASHBOARD E CRUD)
+   ========================================================================== */
+
+/* Telas de Login e Cadastro de Conta */
+.auth-card {
+  background: var(--preto-card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.form-control-dark {
+  background: var(--preto-card2) !important;
+  border: 1px solid var(--borda) !important;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+.form-control-dark:focus {
+  border-color: var(--verde) !important;
+  box-shadow: 0 0 0 2px rgba(0,255,136,0.15) !important;
+}
+
+.form-control-dark::placeholder { 
+  color: var(--cinza-escuro) !important; 
+}
+
+/* Dashboard com Gráfico Chart.js */
+#secao-grafico {
+  background: var(--preto-card);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--borda);
+}
+
+/* Listagens Administrativas / Operações CRUD */
+.table-dark-custom {
+  color: var(--cinza);
+  border-color: var(--borda);
+}
+
+.table-dark-custom thead {
+  background: var(--preto-card2);
+  color: var(--verde);
+}
+
+.table-dark-custom tbody tr {
+  border-color: var(--borda);
+  transition: background 0.15s;
+}
+
+.table-dark-custom tbody tr:hover {
+  background: var(--preto-card2);
+}
+
+/* Estados Vazios de Feedback (Ex: Sem favoritos adicionados) */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cinza-escuro);
+}
+
+.empty-state svg { 
+  margin-bottom: 16px; 
+  opacity: 0.4; 
+}
+
+.empty-state p { 
+  font-size: 1.1rem; 
+}
+
+/* ==========================================================================
+   8. REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .carousel-item img { 
+    height: 260px; 
+  }
+  .carousel-caption h5 { 
+    font-size: 1.3rem; 
+  }
+  .carousel-caption p { 
+    font-size: 0.9rem; 
+  }
+  .auth-card { 
+    padding: 24px 16px; 
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img { 
+    height: 200px; 
+  }
+}
+
+@import url('./base.css');
+@import url('./components.css');
+@import url('./layout.css');
+@import url('./carousel.css');
+@import url('./albums.css');
+@import url('./detail.css');
+@import url('./admin.css');
+@import url('./responsive.css');

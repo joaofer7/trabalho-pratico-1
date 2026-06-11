@@ -1,0 +1,27 @@
+/* ===== YOUR ALBUM CRITIC — DETAIL =====
+   Página de detalhes do álbum
+   ========================================= */
+
+.detalhe-img {
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+.faixa-item {
+  background: var(--preto-card);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+
+.faixa-item:hover {
+  border-color: var(--verde);
+}
+
+.analise-box {
+  background: var(--preto-card);
+  border-left: 4px solid var(--verde);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+}

@@ -1,0 +1,52 @@
+/* ===== YOUR ALBUM CRITIC — BASE =====
+   Importações, variáveis globais, reset e tipografia
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --verde: #00ff88;
+  --verde-escuro: #00cc6a;
+  --preto: #0a0a0a;
+  --preto-card: #151515;
+  --preto-card2: #1a1a1a;
+  --cinza: #e0e0e0;
+  --cinza-escuro: #888;
+  --borda: #2a2a2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--cinza);
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 60px 0;
+}
+
+h2 {
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--verde);
+  margin-top: 10px;
+  border-radius: 2px;
+}

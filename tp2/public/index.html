@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Album Critic | Review Musical com IA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span>YOUR</span> ALBUM CRITIC
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <!-- Modificado: Removido o style="display:none" para a aba ficar sempre visível -->
+          <li class="nav-item" id="nav-cadastro-item">
+            <a class="nav-link" href="cadastro_itens.html">Cadastro</a>
+          </li>
+          <li class="nav-item" id="nav-favoritos" style="display:none">
+            <a class="nav-link" href="favoritos.html">❤ Favoritos</a>
+          </li>
+          <li class="nav-item d-flex align-items-center gap-1" id="nav-login">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="display-4 fw-bold mb-3">
+            Muito além do play.<br>
+            A <span style="color:var(--verde)">essência</span> de cada acorde.
+          </h1>
+          <p class="lead text-secondary">
+            Compartilhe suas análises profundas e descubra novas nuances nos álbuns que marcam gerações.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CARROSSEL -->
+  <section id="destaques" class="py-0">
+    <div id="destaqueCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators" id="carousel-indicators"></div>
+      <div class="carousel-inner" id="carousel-items">
+        <div class="carousel-item active">
+          <div style="height:480px;background:#111;display:flex;align-items:center;justify-content:center;">
+            <p class="text-secondary">Carregando destaques...</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#destaqueCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#destaqueCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- TODOS OS ÁLBUNS + PESQUISA -->
+  <section id="todos-albuns" class="py-5">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <h2 class="mb-0">Álbuns Analisados</h2>
+        <div class="search-wrapper">
+          <input type="text" id="search-input" placeholder="Buscar por título, artista ou gênero...">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </span>
+          <button id="search-btn" style="display:none">Buscar</button>
+        </div>
+      </div>
+      <div class="row g-4" id="grid-albuns">
+        <div class="col-12 text-center text-secondary py-5">Carregando álbuns...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO GRÁFICO -->
+  <section id="visualizacao" class="py-5" style="background:var(--preto-card)">
+    <div class="container">
+      <h2>Distribuição por Ano</h2>
+      <p class="text-secondary mb-4">Visualize a linha do tempo dos álbuns analisados em nossa plataforma.</p>
+      <div id="secao-grafico">
+        <canvas id="grafico-anos" height="120"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES DO AUTOR -->
+  <section class="autor-section py-5">
+    <div class="container">
+      <h2>Sobre o Autor</h2>
+      <div class="row g-4 mt-2">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=joao" alt="Avatar" class="autor-avatar">
+            <div>
+              <div class="fw-bold fs-5">João Vitor Ferreira Fernandes</div>
+              <div class="text-secondary small">Sistemas de informação · PUC Minas</div>
+            </div>
+          </div>
+          <p class="text-secondary small">
+            
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-success mb-3">Informações Acadêmicas</h6>
+          <ul class="list-unstyled text-secondary small">
+            <li class="mb-1"><strong style="color:#ccc">Curso:</strong> Sistemas de informação</li>
+            <li class="mb-1"><strong style="color:#ccc">Turma:</strong> Noite</li>
+            <li class="mb-1"><strong style="color:#ccc">Instituição:</strong> PUC Minas</li>
+            <li class="mb-1"><strong style="color:#ccc">Projeto:</strong> Trabalho Prático 2 · 2026/1</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark py-4 border-top border-secondary">
+    <div class="container text-center text-secondary small">
+      <p class="mb-0">© João Vitor Ferreira Fernandes · 2025 · PUC Minas · Engenharia de Software</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./assets/scripts/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', carregarHome);</script>
+</body>
+</html>

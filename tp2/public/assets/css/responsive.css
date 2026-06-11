@@ -1,0 +1,27 @@
+/* ===== YOUR ALBUM CRITIC — RESPONSIVE =====
+   Media queries de responsividade
+   ============================================= */
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 260px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 1.3rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+
+  .auth-card {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 200px;
+  }
+}
